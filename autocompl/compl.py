@@ -9,7 +9,7 @@ class AutoComplete:
         res = []
         if node.is_word:
             res.append(node.value)
-        for i in node.node_children.values():
+        for i in node.children.values():
             res.extend(self._get_completion_of_node(i))
 
         return res
@@ -17,8 +17,8 @@ class AutoComplete:
     def get_completions(self, word: str):
         curr = self.tree
         for char in word:
-            if char not in curr.node_children:
+            if char not in curr.children:
                 return []
-            curr = curr.node_children[char]
-            
+            curr = curr.children[char]
+
         return self._get_completion_of_node(curr)

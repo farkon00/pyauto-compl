@@ -1,20 +1,8 @@
-# Currently under development, so this is for debug purposes
-from pygraphv import node
-
-class PrefixTreeNode(node.Node):
+class PrefixTreeNode:
     def __init__(self, value: str):
-        super().__init__(value)
         self.value = value
         self.is_word = False
-        self.node_children = {}
-
-    @property
-    def label(self):
-        return f"{self.value}\n{self.is_word}"
-
-    @label.setter
-    def label(self, value):
-        pass
+        self.children = {}
 
     @staticmethod
     def construct_tree(words: list[str]):
@@ -24,10 +12,9 @@ class PrefixTreeNode(node.Node):
             curr_word = ""
             for char in word:
                 curr_word += char
-                if char not in curr.node_children:
-                    curr.node_children[char] = PrefixTreeNode(curr_word)
-                    curr.children.append(curr.node_children[char])
-                curr = curr.node_children[char]
+                if char not in curr.children:
+                    curr.children[char] = PrefixTreeNode(curr_word)
+                curr = curr.children[char]
             curr.is_word = True
 
         return tree
