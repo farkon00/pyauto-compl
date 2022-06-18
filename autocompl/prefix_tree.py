@@ -12,9 +12,11 @@ class PrefixTreeNode(node.Node):
         tree = PrefixTreeNode(" ")
         for word in words:
             curr = tree
+            curr_word = ""
             for char in word:
+                curr_word += char
                 if char not in curr.node_children:
-                    curr.node_children[char] = PrefixTreeNode(char)
+                    curr.node_children[char] = PrefixTreeNode(curr_word)
                     curr.children.append(curr.node_children[char])
                 curr = curr.node_children[char]
 
