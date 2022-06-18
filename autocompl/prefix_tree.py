@@ -1,3 +1,5 @@
+from typing import List
+
 class PrefixTreeNode:
     """
     Node of prefix tree, data structure used by pyauto-compl to store words
@@ -8,7 +10,7 @@ class PrefixTreeNode:
         self.children = {}
 
     @staticmethod
-    def construct_tree(words: list[str]):
+    def construct_tree(words: List[str]):
         """
         Constructs prefix tree from list of words
         """

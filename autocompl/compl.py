@@ -1,3 +1,5 @@
+from typing import List
+
 from .words import MIN_WORDS
 from .prefix_tree import PrefixTreeNode
 
@@ -6,7 +8,7 @@ class AutoComplete:
     Main class in pyauto-compl library
     Used for finding completions of words
     """
-    def __init__(self, words=MIN_WORDS):
+    def __init__(self, words: List[str] = MIN_WORDS):
         self.tree = PrefixTreeNode.construct_tree(words)
 
     def _get_completion_of_node(self, node: PrefixTreeNode):
