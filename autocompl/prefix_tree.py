@@ -1,4 +1,7 @@
 class PrefixTreeNode:
+    """
+    Node of prefix tree, data structure used by pyauto-compl to store words
+    """
     def __init__(self, value: str):
         self.value = value
         self.is_word = False
@@ -6,6 +9,9 @@ class PrefixTreeNode:
 
     @staticmethod
     def construct_tree(words: list[str]):
+        """
+        Constructs prefix tree from list of words
+        """
         tree = PrefixTreeNode(" ")
         for word in words:
             curr = tree
