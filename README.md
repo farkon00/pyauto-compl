@@ -2,6 +2,8 @@
 
 __Pyauto-compl__ - library for auto complete in Python. It comes with set of standard english words for quick start.
 
+It uses prefix tree data structure for better performance.
+
 # Quick start
 ```shell
 pip install pyauto-compl
