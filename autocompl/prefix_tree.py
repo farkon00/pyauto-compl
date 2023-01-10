@@ -9,19 +9,19 @@ class PrefixTreeNode:
         self.is_word = False
         self.children = {}
 
-    @staticmethod
-    def construct_tree(words: List[str]):
+    @classmethod
+    def construct_tree(cls, words: List[str]):
         """
         Constructs prefix tree from list of words
         """
-        tree = PrefixTreeNode(" ")
+        tree = cls(" ")
         for word in words:
             curr = tree
             curr_word = ""
             for char in word:
                 curr_word += char
                 if char not in curr.children:
-                    curr.children[char] = PrefixTreeNode(curr_word)
+                    curr.children[char] = cls(curr_word)
                 curr = curr.children[char]
             curr.is_word = True
 

@@ -20,4 +20,4 @@ while True:
     word = input("Enter word: ")
     completions = auto_compl.get_completions(word)
     print(f"Found {len(completions)} completions")
-    print("\n".join(completions[:max_sug]))
+    print(", ".join(completions[:max_sug]))
